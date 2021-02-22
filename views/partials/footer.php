@@ -8,7 +8,7 @@ function insertFooter($navItemsParam = ['Privacy Policy' => '/views/privacy.php'
 
     // Create the navigation menu list items HTML code
     foreach ($navItems as $linkName => $Uri) {
-        $navListItemsString .= "<li><a href=\"$Uri\">$linkName</li>";
+        $navListItemsString .= "<li><a href=\"$Uri\">$linkName</a></li>";
     }
 
     echo <<<FOOTER
