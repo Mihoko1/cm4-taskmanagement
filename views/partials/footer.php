@@ -1,5 +1,6 @@
 <?php
 
+// The insertFooter() function creates a footer bar and navigation menu. The function will accept 1 argument as parameter: PNavigation menu items (associative array). If no arguments are supplied, the function will use its own default values. The function outputs the HTML code for the footer.
 function insertFooter($navItemsParam = ['Privacy Policy' => '/views/privacy.php', 
                                         'Terms and Conditions' => '/views/termsandconditions.php']) {
 
