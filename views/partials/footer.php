@@ -11,18 +11,18 @@ function insertFooter($navItemsParam = ['Privacy Policy' => '/views/privacy.php'
         $navListItemsString .= "<li><a href=\"$Uri\">$linkName</li>";
     }
 
-echo <<<FOOTER
-    <footer>
-        <nav>
-            <ul>
-                $navListItemsString
-            </ul>
-        </nav>
-        <p>&#169 Copyright 2021, Team C4M.</p>
-    </footer>
-    </body>
-</html>
-FOOTER;
+    echo <<<FOOTER
+        <footer>
+            <nav>
+                <ul>
+                    $navListItemsString
+                </ul>
+            </nav>
+            <p>&#169 Copyright 2021, Team C4M.</p>
+        </footer>
+        </body>
+    </html>
+    FOOTER;
 
 }
 
