@@ -1,16 +1,20 @@
 <?php
 
-// The insertHeader() function creates a header bar and navigation menu. The function will accept 4 arguments as parameters: PageTitle (string), Navigation menu items (associative array), Path to CSS file (string), and Path to JS file (string). The function outputs the HTML code for the header.
+// The insertHeader() function creates a header bar and navigation menu. The function will accept 6 arguments as parameters: PageTitle (string), Navigation menu items (associative array), Path to CSS file (string), Path to JS file (string), Path to the Bootstrap CSS file (string), and Path to the Bootstrap JS file (string). If no arguments are supplied, the function will use its own default values. The function outputs the HTML code for the header.
 
 function insertHeader($pageTitleParam = 'Task Management',
                         $navItemsParam = ['About Us' => '/views/aboutus.php', 'FAQ' => '/views/faq.php', 'Contact Us' => '/views/contactus.php', 'Register' => '/views/register.php', 'Log In' => '/views/login.php'],
-                        $cssPathParam = '/style/global.css',
-                        $jsPathParam = '') {
+                        $cssPathParam = 'style/global.css',
+                        $jsPathParam = '',
+                        $bootstrapCssPathParam = 'css/bootstrap.min.css',
+                        $bootstrapJsPathParam = 'js/bootstrap.min.js') {
 
     $pageTitle = $pageTitleParam;
     $navItems = $navItemsParam;
     $cssPath = $cssPathParam;
     $jsPath = $jsPathParam;
+    $bootstrapCssPath = $bootstrapCssPathParam;
+    $bootstrapJsPath = $bootstrapCssPathParam;
     $navListItemsString = '';
 
     // Create the navigation menu list items HTML code
@@ -28,6 +32,8 @@ function insertHeader($pageTitleParam = 'Task Management',
         <link href="/css/bootstrap.min.css" media="all" rel="stylesheet">
         <script type="text/javascript" src="$jsPath"></script>
         <link rel="stylesheet" href="$cssPath" />
+        <link rel="stylesheet" href="$bootstrapCssPath" />
+        <script type="text/javascript" src="$bootstrapJsPath"></script>
         <script src="/js/bootstrap.min.js"></script>
         <title>$pageTitle</title>
     </head>
