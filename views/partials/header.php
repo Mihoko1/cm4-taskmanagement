@@ -25,8 +25,10 @@ function insertHeader($pageTitleParam = 'Task Management',
         <meta charset="UTF-8">
         <meta http-equiv="X-UA-Compatible" content="IE=edge">
         <meta name="viewport" content="width=device-width">
+        <link href="/css/bootstrap.min.css" media="all" rel="stylesheet">
         <script type="text/javascript" src="$jsPath"></script>
         <link rel="stylesheet" href="$cssPath" />
+        <script src="/js/bootstrap.min.js"></script>
         <title>$pageTitle</title>
     </head>
     <header>

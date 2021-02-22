@@ -1,0 +1,37 @@
+
+
+/******** Sign up and log in border *******/
+.container-login {
+    width: 50%;
+}
+
+.side-border {
+    position: relative;
+    display: inline-block;
+    padding: 0 130px;
+}
+
+.side-border:before,
+.side-border:after {
+    content: '';
+    position: absolute;
+    top: 50%;
+    display: inline-block;
+    width: 100px;
+    height: 3px;
+    background-color: rgb(151, 151, 151);
+}
+
+.side-border:before {
+    left: 0;
+}
+
+.side-border:after {
+    right: 0;
+}
+
+.form-group label {
+    font-size: 1.2em;
+    font-weight: bold;
+}
+
