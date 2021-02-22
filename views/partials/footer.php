@@ -12,15 +12,15 @@ function insertFooter($navItemsParam = ['Privacy Policy' => '/views/privacy.php'
     }
 
     echo <<<FOOTER
-        <footer>
-            <nav>
-                <ul>
-                    $navListItemsString
-                </ul>
-            </nav>
-            <p>&#169 Copyright 2021, Team C4M.</p>
-        </footer>
-        </body>
+    <footer>
+        <nav>
+            <ul>
+                $navListItemsString
+            </ul>
+        </nav>
+        <p>&#169 Copyright 2021, Team C4M.</p>
+    </footer>
+    </body>
     </html>
     FOOTER;
 
