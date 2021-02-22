@@ -38,10 +38,10 @@ function insertHeader($pageTitleParam = 'Task Management',
     </head>
     <header>
         <h1>C4M Project Management App</h1>
-            <nav>
-                <ul>
-                    $navListItemsString
-                </ul>
+        <nav>
+            <ul>
+                $navListItemsString
+            </ul>
         </nav>
     </header>
     <body>
