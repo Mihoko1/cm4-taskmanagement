@@ -26,3 +26,5 @@ function insertFooter($navItemsParam = ['Privacy Policy' => '/views/privacy.php'
 
 }
 
+?>
+
