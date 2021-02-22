@@ -14,7 +14,7 @@ function insertHeader($pageTitleParam = 'Task Management',
     $cssPath = $cssPathParam;
     $jsPath = $jsPathParam;
     $bootstrapCssPath = $bootstrapCssPathParam;
-    $bootstrapJsPath = $bootstrapCssPathParam;
+    $bootstrapJsPath = $bootstrapJsPathParam;
     $navListItemsString = '';
 
     // Create the navigation menu list items HTML code
@@ -34,7 +34,6 @@ function insertHeader($pageTitleParam = 'Task Management',
         <link rel="stylesheet" href="$cssPath" />
         <link rel="stylesheet" href="$bootstrapCssPath" />
         <script type="text/javascript" src="$bootstrapJsPath"></script>
-        <script src="/js/bootstrap.min.js"></script>
         <title>$pageTitle</title>
     </head>
     <header>
