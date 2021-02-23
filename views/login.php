@@ -6,12 +6,13 @@ insertHeader();
 ?>
 
 <div class="container container-login text-center my-5">
-    <div class="row justify-content-md-center">
+    <div class="row justify-content-sm-center">
         <h2>Log in</h2>
 
         <div class="my-5">
 
             <form id="signupForm" name="form_signup" method="POST" action="">
+           
                 <div class="errorMessage"><?= isset($userName) ? $userName : ''; ?></div>
                 <div class="form-group row mb-3">
                     <label class="col-sm-3 col-form-label" for="userName">User Name</label>

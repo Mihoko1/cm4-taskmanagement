@@ -1,8 +1,9 @@
+/************** header nav *****************/
+
+
 
 /******** Sign up and log in border *******/
-.container-login {
-    width: 50%;
-}
+
 
 .side-border {
     position: relative;
@@ -34,7 +35,25 @@
     font-weight: bold;
 }
 
+
+    .container-login {
+        width: 100% !important;
+    }
+
+
+@media (min-width: 769px) { 
+    .container-login {
+        width: 75% !important;
+    }
+ }
+@media (min-width: 1200px) { 
+    .container-login {
+        width: 50% !important;
+    }
+ }
+
 /*****Task-Board Sidebar****/
+
 
 
 
