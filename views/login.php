@@ -1,6 +1,6 @@
 <?php
 
-require("./views/partials/header.php");
+require("./partials/header.php");
 insertHeader();
 
 ?>
@@ -40,6 +40,14 @@ insertHeader();
         </div>
     </div>
 </div>
+
+<?php
+
+require("./partials/footer.php");
+insertFooter();
+
+?>
+
 </body>
 
 </html>
