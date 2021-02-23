@@ -2,11 +2,11 @@
 
 // The insertSidebar() function creates a sidebar and navigation menu plus related elements. The function will accept 1 argument as parameter: Navigation menu items (associative array). If no arguments are supplied, the function will use its own default values. The function outputs the HTML code for the footer.
 function insertSidebar($pageTitleParam = 'Task Management',
-                        $navItemsParam = ['New Project' => '/views/createproject.php',
-                                        'Search Project' => '/views/searchprojects.php',
-                                        'Link 3' => '/views/link3.php',
-                                        'Link 4' => '/views/Link4.php',
-                                        'Link 5' => '/views/Lnk5.php'],
+                        $navItemsParam = ['New Project' => './createproject.php',
+                                        'Search Project' => './searchprojects.php',
+                                        'Link 3' => './link3.php',
+                                        'Link 4' => './Link4.php',
+                                        'Link 5' => './Lnk5.php'],
                        $cssPathParam = '../style/global.css',
                        $jsPathParam = '',
                        $bootstrapCssPathParam = '../css/bootstrap.min.css',
