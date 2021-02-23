@@ -1,9 +1,10 @@
 <?php
-/* 
 
 // The insertSidebar() function creates a sidebar and navigation menu plus related elements. The function will accept 1 argument as parameter: Navigation menu items (associative array). If no arguments are supplied, the function will use its own default values. The function outputs the HTML code for the footer.
-function insertSidebar($navItemsParam = ['New Project' => '/views/createproject.php', 
-                                        'Search Project' => '/views/searchprojects.php']) {
+function insertSidebar($navItemsParam = ['New Project' => './createproject.php', 
+                                        'Search Project' => './searchprojects.php',
+                                        'Sidebar Link 1' => './sidebarlink1.php',
+                                        'Sidebar Link 2' => './sidebarlink2.php']) {
 
     $navItems = $navItemsParam;
     $navListItemsString = '';
@@ -15,9 +16,9 @@ function insertSidebar($navItemsParam = ['New Project' => '/views/createproject.
 
     echo <<<SIDEBAR
     
-    <aside>
-        <nav>
-            <ul>
+    <div class="sidebar">
+        <nav id="sidebar" class="navbar navbar-light ">
+            <ul class="list-unstyled components nav flex-column">
                 $navListItemsString
             </ul>
         </nav>
@@ -27,19 +28,15 @@ function insertSidebar($navItemsParam = ['New Project' => '/views/createproject.
         <div>
             <p>Put Event Calendar Here</p>
         </div>
-    </aside>
+    </div>
     
     SIDEBAR;
 
 } 
 
-*/
 
-?>
-
-<!-- Contains Unneeded Header HTML Code Here - to be fixed -->
-<?php
-
+/*** Unused code kept for reference only, can be deleted later ***/
+/*
 // The insertSidebar() function creates a sidebar and navigation menu plus related elements. The function will accept 1 argument as parameter: Navigation menu items (associative array). If no arguments are supplied, the function will use its own default values. The function outputs the HTML code for the footer.
 function insertSidebar($pageTitleParam = 'Task Management',
                         $navItemsParam = ['New Project' => './createproject.php',
@@ -105,5 +102,6 @@ function insertSidebar($pageTitleParam = 'Task Management',
     SIDEBAR;
 
 }
+*/
 
 ?>

@@ -1,6 +1,7 @@
 <?php
 require("./partials/header.php");
 require("./partials/sidebar.php");
+insertHeader();
 insertSidebar();
 ?>
     <!--Main Start Here-->
@@ -68,9 +69,11 @@ insertSidebar();
         </div>
     <!--Main End Here-->
 </main>
-    <footer class="text-center mt-auto ">
-        <p>&#169 Copyright 2021, Team C4M.</p>
-    </footer>
-</div>
-</body>
-</html>
+
+
+<?php
+
+require("./partials/footer.php");
+insertFooter();
+
+?>

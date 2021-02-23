@@ -4,6 +4,11 @@
 
 /******** Sign up and log in border *******/
 
+.sidebar {
+    display: inline-block;
+    text-align: left;
+}
+
 
 .side-border {
     position: relative;
