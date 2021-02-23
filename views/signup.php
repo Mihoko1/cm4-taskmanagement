@@ -41,7 +41,7 @@ insertHeader();
 
                     <h3 class="side-border">OR You have an account?</h3>
                     <div>
-                        <a class="btn btn-primary btn-lg my-5" href="login.php" role="button"> Log in</a>
+                        <a class="btn btn-primary btn-lg my-5" href="./login.php" role="button"> Log in</a>
                     </div>
                     
                 </form>
