@@ -44,7 +44,7 @@ function insertHeader($pageTitleParam = 'Task Management',
     <body class="d-flex h-100 text-center">
     <div class="cover-container d-flex w-100 h-100 p-3 mx-auto flex-column">
     <header class = "modal-header ">
-        <h1><a class="nav-link" href="../../.index.php">
+        <h1><a class="nav-link" href="../index.php">
                     C4M
                 </a></h1>
         <nav class="navbar-expand-lg ">

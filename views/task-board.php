@@ -1,10 +1,11 @@
 <?php
-
 require("./partials/header.php");
-insertHeader();
+require("./partials/sidebar.php");
+insertSidebar();
 ?>
     <!--Main Start Here-->
     <!--Content Start here-->
+
 <main class = "container container-login text-center my-5">
     <div class=" my-5">
         <h2>TEAM C4M Task Management</h2>
@@ -67,10 +68,9 @@ insertHeader();
         </div>
     <!--Main End Here-->
 </main>
-
-            <footer class="text-center mt-auto ">
-                <p>&#169 Copyright 2021, Team C4M.</p>
-            </footer>
-        </div>
-    </body>
+    <footer class="text-center mt-auto ">
+        <p>&#169 Copyright 2021, Team C4M.</p>
+    </footer>
+</div>
+</body>
 </html>

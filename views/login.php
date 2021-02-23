@@ -47,7 +47,3 @@ require("./partials/footer.php");
 insertFooter();
 
 ?>
-
-</body>
-
-</html>
