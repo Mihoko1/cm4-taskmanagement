@@ -48,11 +48,11 @@ insertHeader();
             </div>
     </div> 
 </div>
+
 <?php
 
 require("./partials/footer.php");
 insertFooter();
 
 ?>
-</body>
-</html>
+
