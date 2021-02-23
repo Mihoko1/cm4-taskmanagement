@@ -1,9 +1,12 @@
 <?php
-header("Location: views/login.php");
-die();
+//header("Location: views/login.php");
+//die();
+require("./views/partials/header.php");
+insertHeader();
 ?>
-<!--Main Start Here-->
-<!--Content Start here-->
+
+    <!--Main Start Here-->
+    <!--Content Start here-->
         <main class = "container container-login text-center my-5">
             <div class="index-content my-5">
                 <h2>TEAM C4M Task Management</h2>
@@ -16,10 +19,6 @@ die();
         <!--Main End Here-->
         </main>
 <?php
-
-require("./views/partials/header.php");
-insertHeader();
-
 
 require("./views/partials/footer.php");
 insertFooter();
