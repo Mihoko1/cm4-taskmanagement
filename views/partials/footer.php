@@ -15,9 +15,9 @@ function insertFooter($navItemsParam = [
     }
 
     echo <<<FOOTER
-            <footer id="footer" class="text-center mt-auto ">
+            <footer id="footer" class="text-center mt-auto position-absolute w-100 bottom-0">
                 <nav class=" navbar-expand-lg fixed bottom">
-                    <ul class="nav justify-content-end ">
+                    <ul class="nav justify-content-end">
                         $navListItemsString
                     </ul>
                 </nav>

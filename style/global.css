@@ -57,6 +57,22 @@
     }
  }
 
+
+/*************  landing.php ***************/
+
+
+/* #footer{
+    position: absolute;
+    bottom: 0;
+    width: 100%;
+} */
+
+#footer nav{
+    right: 0;
+    margin-right: 5%;
+}
+
+
 /*****Task-Board Sidebar****/
 
 
