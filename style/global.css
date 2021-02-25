@@ -1,3 +1,13 @@
+
+/*Colors:
+#91BED4 blue
+#D9E8F5 light blue
+#FFFFFF white
+#334561 dark blue
+#FF9442 orange
+*/
+
+
 /************** header nav *****************/
 
 
@@ -8,7 +18,6 @@
     display: inline-block;
     text-align: left;
 }
-
 
 .side-border {
     position: relative;
@@ -24,7 +33,20 @@
     display: inline-block;
     width: 100px;
     height: 3px;
-    background-color: rgb(151, 151, 151);
+    background-color: #FF9442;
+}
+
+.modal-header a {
+    color: #D9E8F5;
+}
+
+.btn-primary{
+    background-color: #334561 !important;
+    border-color: #334561 !important;
+}
+
+.modal-header {
+    background-color: #334561;
 }
 
 .side-border:before {

@@ -42,11 +42,13 @@ function insertHeader($pageTitleParam = 'Task Management',
         <title>$pageTitle</title>
     </head>
     <body class="d-flex h-100 text-center">
-    <div class="cover-container d-flex w-100 h-100 p-3 mx-auto flex-column">
+    <div class="cover-container d-flex w-100 h-100 mx-auto flex-column">
     <header class = "modal-header ">
-        <h1><a class="nav-link" href="../index.php">
-                    C4M
-                </a></h1>
+        <h1>
+        <span class="hidden">Task Management</span>
+        <a class="nav-link" href="../index.php">
+            <img src="../images/logo-C4M.png" height="50px" alt="Italian Trulli">
+        </a></h1>
         <nav class="navbar-expand-lg ">
             <ul class="nav justify-content-end ">
                 $navListItemsString
