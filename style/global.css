@@ -40,10 +40,13 @@
     font-weight: bold;
 }
 
+.hidden {
+    display: none;
+}
 
-    .container-login {
-        width: 100% !important;
-    }
+.container-login {
+    width: 100% !important;
+}
 
 
 @media (min-width: 769px) { 

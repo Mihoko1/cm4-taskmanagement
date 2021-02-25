@@ -1,8 +1,7 @@
 <?php
-
+require("./partials/footer.php");
 require("./partials/header.php");
 insertHeader();
-
 ?>
 
 <div class="container container-login text-center my-5">
@@ -13,16 +12,18 @@ insertHeader();
 
             <form id="signupForm" name="form_signup" method="POST" action="">
            
-                <div class="errorMessage"><?= isset($userName) ? $userName : ''; ?></div>
+                <div class="errorMessage hidden"><?= isset($userName) ? $userName : ''; ?></div>
                 <div class="form-group row mb-3">
                     <label class="col-sm-3 col-form-label" for="userName">User Name</label>
-                    <input class="col-sm-9" type="text" name="userName" id="userName" value="<?php echo $_POST['userName']; ?>">
+                    <!-- value="<?php echo $_POST['userName']; ?>" -->
+                    <input class="col-sm-9" type="text" name="userName" id="userName">
                 </div>
 
-                <div class="errorMessage"><?= isset($passwordError) ? $passwordError : ''; ?></div>
+                <div class="errorMessage hidden"><?= isset($passwordError) ? $passwordError : ''; ?></div>
                 <div class="form-group row mb-3">
                     <label class="col-sm-3 col-form-label" for="password">Password</label>
-                    <input class="col-sm-9" type="password" name="password" id="password" value="<?php echo $_POST['password']; ?>">
+                    <!-- value="<?php echo $_POST['password']; ?>" -->
+                    <input class="col-sm-9" type="password" name="password" id="password">
                 </div>
 
 
@@ -42,9 +43,4 @@ insertHeader();
     </div>
 </div>
 
-<?php
-
-require("./partials/footer.php");
-insertFooter();
-
-?>
+<?php insertFooter(); ?>

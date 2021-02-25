@@ -1,9 +1,8 @@
 
 <?php
-
+require("./partials/footer.php");
 require("./partials/header.php");
 insertHeader();
-
 ?>
 
 <div class="container container-login text-center my-5">  
@@ -13,23 +12,23 @@ insertHeader();
             <div class="my-5">
                 
                 <form id="signupForm" name="form_signup" method="POST" action="">
-                    <div class="errorMessage"><?= isset($fnameError)? $fnameError: ''; ?></div>
+                    <div class="errorMessage hidden"><?= isset($fnameError)? $fnameError: ''; ?></div>
                     <div class="form-group row mb-3">
                         <label class="col-sm-3 col-form-label" for="name">Name</label>
-                        <input class="col-sm-9" type="text" name="name" id="name" value="<?php echo $_POST['name']; ?>" placeholder="Please type your name">
+                        <input class="col-sm-9" type="text" name="name" id="name" placeholder="Please type your name">
                     </div>
                         
                 
-                    <div class="errorMessage"><?= isset($emailError)? $emailError: ''; ?></div>
+                    <div class="errorMessage hidden"><?= isset($emailError)? $emailError: ''; ?></div>
                     <div class="form-group row mb-3">
                         <label class="col-sm-3 col-form-label" for="email">Email</label>
-                        <input class="col-sm-9" type="text" name="email" id="email" value="<?php echo $_POST['email']; ?>" placeholder="Please type your email address">
+                        <input class="col-sm-9" type="text" name="email" id="email" placeholder="Please type your email address">
                     </div>
             
-                    <div class="errorMessage"><?= isset($passwordError)? $passwordError: ''; ?></div>
+                    <div class="errorMessage hidden"><?= isset($passwordError)? $passwordError: ''; ?></div>
                     <div class="form-group row mb-3">
                         <label class="col-sm-3 col-form-label" for="password">Password</label>
-                        <input class="col-sm-9" type="password" name="password" id="password" value="<?php echo $_POST['password']; ?>" placeholder="Please type your password">
+                        <input class="col-sm-9" type="password" name="password" id="password" placeholder="Please type your password">
                     </div>
             
 
@@ -49,10 +48,5 @@ insertHeader();
     </div> 
 </div>
 
-<?php
-
-require("./partials/footer.php");
-insertFooter();
-
-?>
+<?php insertFooter(); ?>
 
