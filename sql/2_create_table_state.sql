@@ -3,10 +3,10 @@ CREATE TABLE IF NOT EXISTS state (
     description varchar(100) 
 )
 
-INSERT INTO state 
+INSERT INTO STATE
 	(description)
 VALUES 
 	('To Do'),
 	('In Progress'),
 	('Done'),
-	('Canceled')
+	('Canceled');
