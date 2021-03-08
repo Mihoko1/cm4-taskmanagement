@@ -12,11 +12,18 @@ DROP FOREIGN KEY `contact_info_internal_ibfk_1`;
 
 ALTER TABLE `contact_info_internal` 
 ADD CONSTRAINT `contact_info_internal_sender_user_1` 
-FOREIGN KEY (`sender_user_id`) REFERENCES `app_user`(`ID`) ON DELETE NO ACTION ON UPDATE RESTRICT; 
+FOREIGN KEY (`sender_user_id`) 
+REFERENCES `app_user`(`ID`) ON DELETE NO ACTION ON UPDATE RESTRICT; 
 
 ALTER TABLE `contact_info_internal` 
 DROP FOREIGN KEY `contact_info_internal_ibfk_2`; 
 
 ALTER TABLE `contact_info_internal` 
 ADD CONSTRAINT `contact_info_internal_recipient_user_2` 
-FOREIGN KEY (`recipient_user_id`) REFERENCES `app_user`(`ID`) ON DELETE NO ACTION ON UPDATE RESTRICT;
+FOREIGN KEY (`recipient_user_id`) 
+REFERENCES `app_user`(`ID`) ON DELETE NO ACTION ON UPDATE RESTRICT;
+
+ALTER TABLE `contact_info_internal` 
+ADD CONSTRAINT `contact_info_internal_project_id_1` 
+FOREIGN KEY (`project_id`) 
+REFERENCES `project`(`id`) ON DELETE NO ACTION ON UPDATE RESTRICT;
