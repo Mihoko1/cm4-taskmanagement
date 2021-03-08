@@ -8,5 +8,5 @@ CREATE TABLE IF NOT EXISTS `project_user` (
     CONSTRAINT project_id_fk FOREIGN KEY (project_id)
 	    REFERENCES project(id),
     CONSTRAINT role_id_fk FOREIGN KEY (role_id)
-	    REFERENCES role(id),
+	    REFERENCES role(id)
 );
