@@ -1,8 +1,48 @@
 
 <?php
+
+require_once '../Model/Authentication.php';
+require_once '../Model/Database.php';
+
 require("./partials/footer.php");
 require("./partials/header.php");
 insertHeader();
+ 
+session_start();
+
+if(isset($_POST['submit'])){
+    $count = 0;
+
+    //Validate
+    if (!$email = filter_var($_POST['email'], FILTER_VALIDATE_EMAIL)) {
+        echo 'Invalid email';
+        $count++;
+    }
+    //password regx
+    if (preg_match('/\A(?=.*?[a-z])(?=.*?\d)[a-z\d]{8,100}+\z/i', $_POST['password'])) {
+        $password = password_hash($_POST['password'], PASSWORD_DEFAULT);
+    } else {
+        echo 'password must 8 character or more';
+        $count++;
+    }
+    
+    try {
+        $db = Database::getDb();
+
+        $s = new Authentication();
+        $user =  $s->registerUserData($_POST['fname'], $_POST['lname'], $_POST['email'], $password , $db);
+        
+    
+        session_regenerate_id(true); //generate and replace new session_id
+        $_SESSION['EMAIL'] = $_POST['email'];
+        
+        header("location: task-board.php");
+
+    } catch (\Exception $e) {
+        echo $e;
+    }
+}
+
 ?>
 
 <div class="container container-login text-center my-5">  
@@ -14,11 +54,15 @@ insertHeader();
                 <form id="signupForm" name="form_signup" method="POST" action="">
                     <div class="errorMessage hidden"><?= isset($fnameError)? $fnameError: ''; ?></div>
                     <div class="form-group row mb-3">
-                        <label class="col-sm-3 col-form-label" for="name">Name</label>
-                        <input class="col-sm-9" type="text" name="name" id="name" placeholder="Please type your name">
+                        <label class="col-sm-3 col-form-label" for="fname">First Name</label>
+                        <input class="col-sm-9" type="text" name="fname" id="fname" placeholder="Please type your first name">
+                    </div>
+                    <div class="errorMessage hidden"><?= isset($LnameError)? $LnameError: ''; ?></div>
+                    <div class="form-group row mb-3">
+                        <label class="col-sm-3 col-form-label" for="lname">Last Name</label>
+                        <input class="col-sm-9" type="text" name="lname" id="lname" placeholder="Please type your last name">
                     </div>
                         
-                
                     <div class="errorMessage hidden"><?= isset($emailError)? $emailError: ''; ?></div>
                     <div class="form-group row mb-3">
                         <label class="col-sm-3 col-form-label" for="email">Email</label>
@@ -34,7 +78,7 @@ insertHeader();
 
                     <div class="form-group my-5">
                         <div>
-                            <button type="submit" class="btn btn-primary btn-lg">Submit</button>
+                        <input type="submit" name ="submit" class="btn btn-primary btn-lg" value="Sign up" >
                         </div>
                     </div>
 

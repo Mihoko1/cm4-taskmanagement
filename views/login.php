@@ -1,7 +1,50 @@
 <?php
-require("./partials/footer.php");
+require_once '../Model/Authentication.php';
+require_once '../Model/Database.php';
+
 require("./partials/header.php");
+require("./partials/footer.php");
 insertHeader();
+
+
+ session_start();
+ if(isset($_POST['submit'])){
+
+    $count = 0;
+     
+    if (!filter_var($_POST['userName'], FILTER_VALIDATE_EMAIL)) {
+        $userNameError =  "Please input valid user name";
+        $count++;
+    }
+    
+    
+    $db = Database::getDb();
+    
+    $s = new Authentication();
+    $user =  $s->getUserData($_POST['userName'], $db);
+    
+    
+    //Check if email address is existing in DB
+    if (!isset($user['email_address'])) {
+        $userNameError =  "Please input valid user name";
+        $count++;
+    }
+    
+    //Pass email address after check password
+    if ($count == 0 && password_verify($_POST['password'], $user['password'])) {
+    
+        session_regenerate_id(true); //generate and replace new session_id
+        $_SESSION['EMAIL'] = $user['email_address'];
+        
+        header("location: task-board.php");
+    
+    } else {
+        
+        $passwordError = 'Wrong email address or password';
+    
+    }
+}
+ 
 ?>
 
 <div class="container container-login text-center my-5">
@@ -10,16 +53,16 @@ insertHeader();
 
         <div class="my-5">
 
-            <form id="signupForm" name="form_signup" method="POST" action="">
+            <form id="loginForm" name="form_login" method="POST" action="">
            
-                <div class="errorMessage hidden"><?= isset($userName) ? $userName : ''; ?></div>
+                <div class="errorMessage"><?= isset($userNameError) ? $userNameError : ''; ?></div>
                 <div class="form-group row mb-3">
                     <label class="col-sm-3 col-form-label" for="userName">User Name</label>
                     <!-- value="<?php echo $_POST['userName']; ?>" -->
                     <input class="col-sm-9" type="text" name="userName" id="userName">
                 </div>
 
-                <div class="errorMessage hidden"><?= isset($passwordError) ? $passwordError : ''; ?></div>
+                <div class="errorMessage"><?= isset($passwordError) ? $passwordError : ''; ?></div>
                 <div class="form-group row mb-3">
                     <label class="col-sm-3 col-form-label" for="password">Password</label>
                     <!-- value="<?php echo $_POST['password']; ?>" -->
@@ -29,7 +72,7 @@ insertHeader();
 
                 <div class="form-group my-5">
                     <div>
-                        <button type="submit" class="btn btn-primary btn-lg">Log in</button>
+                        <input type="submit" name ="submit" class="btn btn-primary btn-lg" value="Log in">
                     </div>
                 </div>
 
