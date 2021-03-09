@@ -28,7 +28,7 @@ CREATE TABLE `app_user` (
   `username` varchar(50) DEFAULT NULL,
   `password` varchar(255) DEFAULT NULL,
   `phone_number` varchar(30) DEFAULT NULL,
-  `email_address` varchar(50) DEFAULT NULL
+  `email_address` varchar(255) DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 --
