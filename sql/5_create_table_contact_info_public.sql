@@ -1,11 +1,14 @@
 CREATE TABLE `contact_info_public` (
-  `id` int(11) NOT NULL,
+  `id` INT PRIMARY KEY NOT NULL AUTO_INCREMENT , 
   `name` varchar(55) DEFAULT NULL,
   `email_address` varchar(55) DEFAULT NULL,
   `phone_number` varchar(55) DEFAULT NULL,
   `subject` varchar(55) DEFAULT NULL,
   `message` varchar(3000) DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+
+
+
 
 --
 -- Dumping data for table `contact_info_public`
