@@ -21,7 +21,7 @@ SET time_zone = "+00:00";
 --
 
 CREATE TABLE `app_user` (
-  `ID` int(11) NOT NULL,
+  `id` int(11) NOT NULL,
   `first_name` varchar(50) DEFAULT NULL,
   `last_name` varchar(50) DEFAULT NULL,
   `middle_name` varchar(50) DEFAULT NULL,
@@ -35,7 +35,7 @@ CREATE TABLE `app_user` (
 -- Dumping data for table `app_user`
 --
 
-INSERT INTO `app_user` (`ID`, `first_name`, `last_name`, `middle_name`, `username`, `password`, `phone_number`, `email_address`) VALUES
+INSERT INTO `app_user` (`id`, `first_name`, `last_name`, `middle_name`, `username`, `password`, `phone_number`, `email_address`) VALUES
 (3, 'James', 'Bond', NULL, 'james_bond', '1234567', '641-255-6825', 'james.bond@test.com'),
 (7, 'Mary', 'Schick', NULL, NULL, '$2y$10$TYgIhHPPLQkwLeT439kj4.Y5gna3AuWnxyLZR4SxszRl.DW1xU/Vq', NULL, 'mary@test3.com'),
 (8, 'Ken', 'Nicholls', NULL, NULL, '$2y$10$bllzN0mSnX49cOeVkS2Bw.AoSwwF9sppdWKe9qucFpJ3un.PxmH7W', NULL, 'ken@test.com'),
@@ -138,7 +138,7 @@ CREATE TABLE `role` (
 --
 
 CREATE TABLE `state` (
-  `ID` int(11) NOT NULL,
+  `id` int(11) NOT NULL,
   `description` varchar(100) DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
@@ -146,7 +146,7 @@ CREATE TABLE `state` (
 -- Dumping data for table `state`
 --
 
-INSERT INTO `state` (`ID`, `description`) VALUES
+INSERT INTO `state` (`id`, `description`) VALUES
 (1, 'To Do'),
 (2, 'In Progress'),
 (3, 'Done'),
@@ -160,7 +160,7 @@ INSERT INTO `state` (`ID`, `description`) VALUES
 -- Indexes for table `app_user`
 --
 ALTER TABLE `app_user`
-  ADD PRIMARY KEY (`ID`);
+  ADD PRIMARY KEY (`id`);
 
 --
 -- Indexes for table `contact_info_internal`
@@ -208,7 +208,7 @@ ALTER TABLE `role`
 -- Indexes for table `state`
 --
 ALTER TABLE `state`
-  ADD PRIMARY KEY (`ID`);
+  ADD PRIMARY KEY (`id`);
 
 --
 -- AUTO_INCREMENT for dumped tables
@@ -218,7 +218,7 @@ ALTER TABLE `state`
 -- AUTO_INCREMENT for table `app_user`
 --
 ALTER TABLE `app_user`
-  MODIFY `ID` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=10;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=10;
 
 --
 -- AUTO_INCREMENT for table `contact_info_internal`
@@ -260,7 +260,7 @@ ALTER TABLE `role`
 -- AUTO_INCREMENT for table `state`
 --
 ALTER TABLE `state`
-  MODIFY `ID` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
 
 --
 -- Constraints for dumped tables
@@ -271,13 +271,13 @@ ALTER TABLE `state`
 --
 ALTER TABLE `contact_info_internal`
   ADD CONSTRAINT `contact_info_internal_project_id_1` FOREIGN KEY (`project_id`) REFERENCES `project` (`id`) ON DELETE NO ACTION,
-  ADD CONSTRAINT `contact_info_internal_recipient_user_2` FOREIGN KEY (`recipient_user_id`) REFERENCES `app_user` (`ID`) ON DELETE NO ACTION,
-  ADD CONSTRAINT `contact_info_internal_sender_user_1` FOREIGN KEY (`sender_user_id`) REFERENCES `app_user` (`ID`) ON DELETE NO ACTION;
+  ADD CONSTRAINT `contact_info_internal_recipient_user_2` FOREIGN KEY (`recipient_user_id`) REFERENCES `app_user` (`id`) ON DELETE NO ACTION,
+  ADD CONSTRAINT `contact_info_internal_sender_user_1` FOREIGN KEY (`sender_user_id`) REFERENCES `app_user` (`id`) ON DELETE NO ACTION;
 
 --
 -- Constraints for table `project_user`
 --
 ALTER TABLE `project_user`
-  ADD CONSTRAINT `app_user_id_fk` FOREIGN KEY (`app_user_id`) REFERENCES `app_user` (`ID`),
+  ADD CONSTRAINT `app_user_id_fk` FOREIGN KEY (`app_user_id`) REFERENCES `app_user` (`id`),
   ADD CONSTRAINT `project_id_fk` FOREIGN KEY (`project_id`) REFERENCES `project` (`id`),
   ADD CONSTRAINT `role_id_fk` FOREIGN KEY (`role_id`) REFERENCES `role` (`id`);
