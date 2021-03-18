@@ -1,4 +1,7 @@
-
+html {
+    position: relative;
+    min-height: 100%;
+  }
 /*Colors:
 #91BED4 blue
 #D9E8F5 light blue
