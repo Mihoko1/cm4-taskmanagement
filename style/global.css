@@ -133,4 +133,14 @@ form .row {
     text-align: left !important;
 }
 
+/************ FAQ ***************/
+.submitBtn{
+    width: 100% !important;
+}
+
+.faqContainer{
+
+    text-align: left !important;
+}
+
 
