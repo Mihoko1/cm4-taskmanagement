@@ -1,14 +1,22 @@
 -- phpMyAdmin SQL Dump
--- version 4.9.3
+-- version 4.9.5
 -- https://www.phpmyadmin.net/
 --
--- Host: localhost:8889
--- Generation Time: Mar 09, 2021 at 03:52 AM
--- Server version: 5.7.26
--- PHP Version: 7.4.2
+-- Host: localhost:3306
+-- Generation Time: Mar 17, 2021 at 09:47 PM
+-- Server version: 5.7.24
+-- PHP Version: 7.4.1
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
+SET AUTOCOMMIT = 0;
+START TRANSACTION;
 SET time_zone = "+00:00";
+
+
+/*!40101 SET @OLD_CHARACTER_SET_CLIENT=@@CHARACTER_SET_CLIENT */;
+/*!40101 SET @OLD_CHARACTER_SET_RESULTS=@@CHARACTER_SET_RESULTS */;
+/*!40101 SET @OLD_COLLATION_CONNECTION=@@COLLATION_CONNECTION */;
+/*!40101 SET NAMES utf8mb4 */;
 
 --
 -- Database: `task_management`
@@ -40,6 +48,21 @@ INSERT INTO `app_user` (`id`, `first_name`, `last_name`, `middle_name`, `usernam
 (7, 'Mary', 'Schick', NULL, NULL, '$2y$10$TYgIhHPPLQkwLeT439kj4.Y5gna3AuWnxyLZR4SxszRl.DW1xU/Vq', NULL, 'mary@test3.com'),
 (8, 'Ken', 'Nicholls', NULL, NULL, '$2y$10$bllzN0mSnX49cOeVkS2Bw.AoSwwF9sppdWKe9qucFpJ3un.PxmH7W', NULL, 'ken@test.com'),
 (9, 'Stephan', 'Watt', NULL, NULL, '$2y$10$TOrf43vzhcl7oKpn12.a0uQWA3tGV.9cDeUXBXwu.MliV9K5Kru32', NULL, 'stephan@test.com');
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `category`
+--
+
+CREATE TABLE `category` (
+  `id` int(11) NOT NULL,
+  `title` varchar(250) DEFAULT NULL,
+  `description` varchar(1000) DEFAULT NULL,
+  `created_date` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP,
+  `poject_id` int(11) DEFAULT NULL,
+  `creator_user_id` int(11) DEFAULT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 -- --------------------------------------------------------
 
@@ -91,6 +114,27 @@ CREATE TABLE `faq` (
   `question` varchar(255) DEFAULT NULL,
   `answer` varchar(255) DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `priority`
+--
+
+CREATE TABLE `priority` (
+  `id` int(11) NOT NULL,
+  `description` varchar(100) DEFAULT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+
+--
+-- Dumping data for table `priority`
+--
+
+INSERT INTO `priority` (`id`, `description`) VALUES
+(1, 'Critical'),
+(2, 'High'),
+(3, 'Medium'),
+(4, 'Low');
 
 -- --------------------------------------------------------
 
@@ -150,6 +194,28 @@ INSERT INTO `state` (`id`, `description`) VALUES
 (3, 'Done'),
 (4, 'Canceled');
 
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `tasks`
+--
+
+CREATE TABLE `tasks` (
+  `id` int(11) NOT NULL,
+  `title` varchar(250) DEFAULT NULL,
+  `description` varchar(4000) DEFAULT NULL,
+  `assigned_user_id` int(11) DEFAULT NULL,
+  `poject_id` int(11) DEFAULT NULL,
+  `creator_user_id` int(11) DEFAULT NULL,
+  `priority_id` int(11) DEFAULT NULL,
+  `category_id` int(11) DEFAULT NULL,
+  `state_id` int(11) DEFAULT NULL,
+  `estimated_time` decimal(10,0) DEFAULT NULL,
+  `spent_time` decimal(10,0) DEFAULT NULL,
+  `remaining_time` decimal(10,0) DEFAULT NULL,
+  `created_date` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+
 --
 -- Indexes for dumped tables
 --
@@ -159,6 +225,14 @@ INSERT INTO `state` (`id`, `description`) VALUES
 --
 ALTER TABLE `app_user`
   ADD PRIMARY KEY (`id`);
+
+--
+-- Indexes for table `category`
+--
+ALTER TABLE `category`
+  ADD PRIMARY KEY (`id`),
+  ADD KEY `poject_id` (`poject_id`),
+  ADD KEY `creator_user_id` (`creator_user_id`);
 
 --
 -- Indexes for table `contact_info_internal`
@@ -173,6 +247,12 @@ ALTER TABLE `contact_info_internal`
 -- Indexes for table `faq`
 --
 ALTER TABLE `faq`
+  ADD PRIMARY KEY (`id`);
+
+--
+-- Indexes for table `priority`
+--
+ALTER TABLE `priority`
   ADD PRIMARY KEY (`id`);
 
 --
@@ -203,6 +283,18 @@ ALTER TABLE `state`
   ADD PRIMARY KEY (`id`);
 
 --
+-- Indexes for table `tasks`
+--
+ALTER TABLE `tasks`
+  ADD PRIMARY KEY (`id`),
+  ADD KEY `assigned_user_id` (`assigned_user_id`),
+  ADD KEY `poject_id` (`poject_id`),
+  ADD KEY `creator_user_id` (`creator_user_id`),
+  ADD KEY `priority_id` (`priority_id`),
+  ADD KEY `category_id` (`category_id`),
+  ADD KEY `state_id` (`state_id`);
+
+--
 -- AUTO_INCREMENT for dumped tables
 --
 
@@ -211,6 +303,12 @@ ALTER TABLE `state`
 --
 ALTER TABLE `app_user`
   MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=10;
+
+--
+-- AUTO_INCREMENT for table `category`
+--
+ALTER TABLE `category`
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
 
 --
 -- AUTO_INCREMENT for table `contact_info_internal`
@@ -223,6 +321,12 @@ ALTER TABLE `contact_info_internal`
 --
 ALTER TABLE `faq`
   MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
+
+--
+-- AUTO_INCREMENT for table `priority`
+--
+ALTER TABLE `priority`
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
 
 --
 -- AUTO_INCREMENT for table `project`
@@ -249,8 +353,21 @@ ALTER TABLE `state`
   MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
 
 --
+-- AUTO_INCREMENT for table `tasks`
+--
+ALTER TABLE `tasks`
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
+
+--
 -- Constraints for dumped tables
 --
+
+--
+-- Constraints for table `category`
+--
+ALTER TABLE `category`
+  ADD CONSTRAINT `category_ibfk_1` FOREIGN KEY (`poject_id`) REFERENCES `project` (`id`) ON DELETE SET NULL,
+  ADD CONSTRAINT `category_ibfk_2` FOREIGN KEY (`creator_user_id`) REFERENCES `app_user` (`id`) ON DELETE SET NULL;
 
 --
 -- Constraints for table `contact_info_internal`
@@ -267,3 +384,19 @@ ALTER TABLE `project_user`
   ADD CONSTRAINT `app_user_id_fk` FOREIGN KEY (`app_user_id`) REFERENCES `app_user` (`id`),
   ADD CONSTRAINT `project_id_fk` FOREIGN KEY (`project_id`) REFERENCES `project` (`id`),
   ADD CONSTRAINT `role_id_fk` FOREIGN KEY (`role_id`) REFERENCES `role` (`id`);
+
+--
+-- Constraints for table `tasks`
+--
+ALTER TABLE `tasks`
+  ADD CONSTRAINT `tasks_ibfk_1` FOREIGN KEY (`assigned_user_id`) REFERENCES `app_user` (`id`) ON DELETE SET NULL,
+  ADD CONSTRAINT `tasks_ibfk_2` FOREIGN KEY (`poject_id`) REFERENCES `project` (`id`) ON DELETE SET NULL,
+  ADD CONSTRAINT `tasks_ibfk_3` FOREIGN KEY (`creator_user_id`) REFERENCES `app_user` (`id`) ON DELETE SET NULL,
+  ADD CONSTRAINT `tasks_ibfk_4` FOREIGN KEY (`priority_id`) REFERENCES `priority` (`id`) ON DELETE SET NULL,
+  ADD CONSTRAINT `tasks_ibfk_5` FOREIGN KEY (`category_id`) REFERENCES `category` (`id`) ON DELETE SET NULL,
+  ADD CONSTRAINT `tasks_ibfk_6` FOREIGN KEY (`state_id`) REFERENCES `state` (`id`) ON DELETE SET NULL;
+COMMIT;
+
+/*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
+/*!40101 SET CHARACTER_SET_RESULTS=@OLD_CHARACTER_SET_RESULTS */;
+/*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
