@@ -82,6 +82,29 @@
     }
  }
 
+/*************  Forms ***************/
+
+form {
+    padding: 1rem 10%;
+}
+
+form .row {
+    padding: 0.5rem 0;
+    text-align: left;
+}
+
+.form-group label {
+    font-size: 1em;
+    font-weight: normal;
+}
+
+
+/*************  buttons ***************/
+.form-btn-container {
+    float: right;
+
+}
+
 
 /*************  landing.php ***************/
 
