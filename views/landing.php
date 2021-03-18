@@ -7,8 +7,9 @@ insertHeader();
 
 <!--Main Start Here-->
 <!--Content Start here-->
-<main class = "container container-login text-center my-5">
-        <div class="index-content my-5">
+
+<main class = "container container-login text-center my-5 pb-5 ">
+        <div class="index-content my-5 pb-5 pt-5 ">
             <h2>TEAM C4M Task Management</h2>
             <p class="lead ">Accelerate Your Business</p> <!-- Probably can have better slogan-->
             <div class=" col-lg-12 ">
