@@ -21,6 +21,7 @@ $projects =  $p->getAllProjects(Database::getDb());
 
 $Nav = new SideBar(['About Us','Work', 'Contact Us']);
 
+$_SESSION['user_id'] = 'James@bond.com'; //code to get rid of error msg temporarily, delete it after work has been shown to Nithya
 $upcomingDueDates = UpcomingDueDates::getUpcomingDueDates($_SESSION['user_id'], $dbcon);
 
 
@@ -28,14 +29,15 @@ $upcomingDueDates = UpcomingDueDates::getUpcomingDueDates($_SESSION['user_id'], 
 
 <div class="d-xl-flex row" id="overview-wrapper">
         <nav class="col-md-2 d-none d-md-block bg-light sidebar">
-            <h6 class="sidebar-heading d-flex justify-content-between align-items-center px-3 mt-4 mb-1 text-muted">
+<!--             <h6 class="sidebar-heading d-flex justify-content-between align-items-center px-3 mt-4 mb-1 text-muted">
               <span>Due Dates</span>
-            </h6>
-            <?php
-                        echo $Nav->display_SideNav();
-                    ?>
+            </h6> -->
+            
+                <?php
+                    //echo $Nav->display_SideNav();
+                    echo $upcomingDueDates;
+                ?>
 
-            <?= $upcomingDueDates ?>
         </nav>
         
 <main role="main" class="overviewpage col-md-10">  
