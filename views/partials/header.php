@@ -3,13 +3,7 @@
 // The insertHeader() function creates a header bar and navigation menu. The function will accept 6 arguments as parameters: PageTitle (string), Navigation menu items (associative array), Path to CSS file (string), Path to JS file (string), Path to the Bootstrap CSS file (string), and Path to the Bootstrap JS file (string). If no arguments are supplied, the function will use its own default values. The function outputs the HTML code for the header.
 
 function insertHeader($pageTitleParam = 'Task Management',
-                      $navItemsParam = [
-                          'About Us' => './aboutus.php',
-                          'FAQ' => './faq.php',
-                          'Contact Us' => './contactus.php',
-                          'Register' => './signup.php',
-                          'Log In' => './login.php'
-                      ],
+                      $navItemsParam = '',
                       $cssPathParam = '../style/global.css',
                       $jsPathParam = '',
                       $bootstrapCssPathParam = '../css/bootstrap.min.css',
@@ -22,6 +16,27 @@ function insertHeader($pageTitleParam = 'Task Management',
     $bootstrapCssPath = $bootstrapCssPathParam;
     $bootstrapJsPath = $bootstrapJsPathParam;
     $navListItemsString = '';
+
+    if ($navItemsParam === '' && !isset($_SESSION['isLoggedIn'])) {
+        $navItems = [
+                        'About Us' => './aboutus.php',
+                        'FAQ' => './faq.php',
+                        'Contact Us' => './contactus.php',
+                        'Register' => './signup.php',
+                        'Log In' => './login.php'
+                    ];
+    }
+
+    if ($navItemsParam === '' && isset($_SESSION['isLoggedIn'])) {
+        $navItems = [
+                        'Projects Overview' => './projects-overview.php',
+                        'Create New Project' => './new-project.php',
+                        'Logout' => './logout.php'
+                    ];
+    }    
+
+    
+
 
     // Create the navigation menu list items HTML code
     foreach ($navItems as $linkName => $Uri) {

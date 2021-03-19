@@ -1,9 +1,13 @@
 <?php
+
+// Start or resume a session
+session_start();
+
 require("./partials/header.php");
 require("./partials/sidebar.php");
 insertHeader();
 insertSidebar();
-session_start();
+//session_start();
 
 ?>
     <!--Main Start Here-->

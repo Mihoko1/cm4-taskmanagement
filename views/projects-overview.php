@@ -1,19 +1,29 @@
 <?php
+
+
+// Start or resume a session
+session_start();
+
 require_once '../Model/ProjectOverview.php';
 require_once '../Model/SideBar.php';
 require_once '../Model/Database.php';
+require_once '../Model/UpcomingDueDates.php';
 
 require("./partials/footer.php");
 require("./partials/header.php");
 insertHeader();
  
-session_start();
+//session_start();
 
 $dbcon = Database::getDb();
 $p = new ProjectOverview();
 $projects =  $p->getAllProjects(Database::getDb());
 
 $Nav = new SideBar(['About Us','Work', 'Contact Us']);
+
+$upcomingDueDates = UpcomingDueDates::getUpcomingDueDates($_SESSION['user_id'], $dbcon);
+
+
 ?>
 
 <div class="d-xl-flex row" id="overview-wrapper">
@@ -24,6 +34,8 @@ $Nav = new SideBar(['About Us','Work', 'Contact Us']);
             <?php
                         echo $Nav->display_SideNav();
                     ?>
+
+            <?= $upcomingDueDates ?>
         </nav>
         
 <main role="main" class="overviewpage col-md-10">  

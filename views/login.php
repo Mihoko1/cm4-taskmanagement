@@ -1,4 +1,9 @@
 <?php
+
+
+// Start or resume a session
+session_start();
+
 require_once '../Model/Authentication.php';
 require_once '../Model/Database.php';
 
@@ -7,7 +12,8 @@ require("./partials/footer.php");
 insertHeader();
 
 
- session_start();
+// session_start();
+
  if(isset($_POST['submit'])){
 
     $count = 0;
@@ -35,6 +41,9 @@ insertHeader();
     
         session_regenerate_id(true); //generate and replace new session_id
         $_SESSION['EMAIL'] = $user['email_address'];
+        $_SESSION['username'] = $user['username'];
+        $_SESSION['userId'] = $user['id'];
+        $_SESSION['isLoggedIn'] = true; //Set isLoggedIn indicator for dynamic content and authentication on other pages
         
         header("location: task-board.php");
     
