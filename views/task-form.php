@@ -6,18 +6,17 @@ insertSidebar();
 session_start();
 ?>
 <main>
-    <section class="task-form">
+    <section class="container my-5">
         <h2>Create New Task</h2>
         <form action="" name="taskForm" method="post">
             <div class="row">
                 <div class="col-12">
-                    <div class="form-btn-container">
+                    <div class="float-end">
                         <button type="button" class="btn btn-secondary">Canceled</button>                        
                         <button type="button" class="btn btn-danger">Delete</button>
                         <button type="button" class="btn btn-success">Save</button>
                     </div>
                 </div>
-
             </div>
 
             <div class="row">

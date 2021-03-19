@@ -14,6 +14,10 @@
 
 /******** Sign up and log in border *******/
 
+html {
+    min-height: 100%;
+}
+
 .sidebar {
     display: inline-block;
     text-align: left;
@@ -47,6 +51,7 @@
 
 .modal-header {
     background-color: #334561;
+    padding: 0.5rem 1rem !important;
 }
 
 .side-border:before {
@@ -83,11 +88,6 @@
  }
 
 /*************  Forms ***************/
-
-form {
-    padding: 1rem 10%;
-}
-
 form .row {
     padding: 0.5rem 0;
     text-align: left;
@@ -98,13 +98,15 @@ form .row {
     font-weight: normal;
 }
 
-
-/*************  buttons ***************/
-.form-btn-container {
-    float: right;
-
+.task-filters .form-control {
+    border: 2px solid #91BED4 !important;
 }
 
+
+/*************  Table ***************/
+.table-dark{
+    --bs-table-bg: #334561 !important;
+}
 
 /*************  landing.php ***************/
 
@@ -119,6 +121,11 @@ form .row {
     right: 0;
     margin-right: 5%;
 }
+
+/* #footer nav .nav-link{
+    display: inline !important;
+}
+ */
 
 
 /*****Task-Board Sidebar****/
