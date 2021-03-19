@@ -2,12 +2,14 @@
 <!-- Currently this php file is not used -->
 
 <?php
+
+// Start or resume a session
+session_start();
+
  require_once '../Model/Authentication.php';
  require_once '../Model/Database.php';
 //  require_once 'Model/Authentication.php';
 
- 
-session_start();
 
 if (!filter_var($_POST['userName'], FILTER_VALIDATE_EMAIL)) {
   echo 'Please enter valid email address';
