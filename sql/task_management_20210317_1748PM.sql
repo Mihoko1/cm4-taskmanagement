@@ -60,7 +60,7 @@ CREATE TABLE `category` (
   `title` varchar(250) DEFAULT NULL,
   `description` varchar(1000) DEFAULT NULL,
   `created_date` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP,
-  `poject_id` int(11) DEFAULT NULL,
+  `project_id` int(11) DEFAULT NULL,
   `creator_user_id` int(11) DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
@@ -205,7 +205,7 @@ CREATE TABLE `tasks` (
   `title` varchar(250) DEFAULT NULL,
   `description` varchar(4000) DEFAULT NULL,
   `assigned_user_id` int(11) DEFAULT NULL,
-  `poject_id` int(11) DEFAULT NULL,
+  `project_id` int(11) DEFAULT NULL,
   `creator_user_id` int(11) DEFAULT NULL,
   `priority_id` int(11) DEFAULT NULL,
   `category_id` int(11) DEFAULT NULL,
@@ -231,7 +231,7 @@ ALTER TABLE `app_user`
 --
 ALTER TABLE `category`
   ADD PRIMARY KEY (`id`),
-  ADD KEY `poject_id` (`poject_id`),
+  ADD KEY `project_id` (`project_id`),
   ADD KEY `creator_user_id` (`creator_user_id`);
 
 --
@@ -288,7 +288,7 @@ ALTER TABLE `state`
 ALTER TABLE `tasks`
   ADD PRIMARY KEY (`id`),
   ADD KEY `assigned_user_id` (`assigned_user_id`),
-  ADD KEY `poject_id` (`poject_id`),
+  ADD KEY `project_id` (`project_id`),
   ADD KEY `creator_user_id` (`creator_user_id`),
   ADD KEY `priority_id` (`priority_id`),
   ADD KEY `category_id` (`category_id`),
@@ -366,7 +366,7 @@ ALTER TABLE `tasks`
 -- Constraints for table `category`
 --
 ALTER TABLE `category`
-  ADD CONSTRAINT `category_ibfk_1` FOREIGN KEY (`poject_id`) REFERENCES `project` (`id`) ON DELETE SET NULL,
+  ADD CONSTRAINT `category_ibfk_1` FOREIGN KEY (`project_id`) REFERENCES `project` (`id`) ON DELETE SET NULL,
   ADD CONSTRAINT `category_ibfk_2` FOREIGN KEY (`creator_user_id`) REFERENCES `app_user` (`id`) ON DELETE SET NULL;
 
 --
@@ -390,7 +390,7 @@ ALTER TABLE `project_user`
 --
 ALTER TABLE `tasks`
   ADD CONSTRAINT `tasks_ibfk_1` FOREIGN KEY (`assigned_user_id`) REFERENCES `app_user` (`id`) ON DELETE SET NULL,
-  ADD CONSTRAINT `tasks_ibfk_2` FOREIGN KEY (`poject_id`) REFERENCES `project` (`id`) ON DELETE SET NULL,
+  ADD CONSTRAINT `tasks_ibfk_2` FOREIGN KEY (`project_id`) REFERENCES `project` (`id`) ON DELETE SET NULL,
   ADD CONSTRAINT `tasks_ibfk_3` FOREIGN KEY (`creator_user_id`) REFERENCES `app_user` (`id`) ON DELETE SET NULL,
   ADD CONSTRAINT `tasks_ibfk_4` FOREIGN KEY (`priority_id`) REFERENCES `priority` (`id`) ON DELETE SET NULL,
   ADD CONSTRAINT `tasks_ibfk_5` FOREIGN KEY (`category_id`) REFERENCES `category` (`id`) ON DELETE SET NULL,

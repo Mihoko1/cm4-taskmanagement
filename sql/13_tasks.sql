@@ -3,7 +3,7 @@ CREATE TABLE IF NOT EXISTS tasks (
    title varchar(250),
    description varchar(4000), 
    assigned_user_id int,
-   poject_id int,
+   project_id int,
    creator_user_id int,  
    priority_id int,
    category_id int,
@@ -15,7 +15,7 @@ CREATE TABLE IF NOT EXISTS tasks (
    FOREIGN KEY (assigned_user_id)
 	REFERENCES app_user(id)
 	ON DELETE SET NULL,	
-FOREIGN KEY (poject_id)
+FOREIGN KEY (project_id)
 	REFERENCES project(id)
 	ON DELETE SET NULL,		
 FOREIGN KEY (creator_user_id)
