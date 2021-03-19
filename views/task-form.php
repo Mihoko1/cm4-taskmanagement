@@ -1,8 +1,8 @@
 <?php
 require("./partials/header.php");
-require("./partials/sidebar.php");
+//require("./partials/sidebar.php");
 insertHeader();
-insertSidebar();
+//insertSidebar();
 session_start();
 ?>
 <main>
