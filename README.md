@@ -10,7 +10,7 @@ Our system will track deadlines and notify members of upcoming due dates. Our sy
 
 ## Project Phase 2 Interface Design 
 
-- [x] Mihoko = Login/Signup, Contact Us, FAQ
+- [x] Mihoko - Login/Signup, Contact Us, FAQ
 - [x] Gordian - Landing, Sidebar, header, footer, Progress Bar, Notification
 - [x] Choo - Project CRUD, Email
 - [x] Mahsa - Task CRUD, Category CRUD
