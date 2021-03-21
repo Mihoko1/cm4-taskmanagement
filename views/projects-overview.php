@@ -8,6 +8,7 @@ require_once '../Model/ProjectOverview.php';
 require_once '../Model/SideBar.php';
 require_once '../Model/Database.php';
 require_once '../Model/UpcomingDueDates.php';
+require_once '../Model/Notifications.php';
 
 require("./partials/footer.php");
 require("./partials/header.php");
@@ -24,6 +25,7 @@ $Nav = new SideBar(['About Us','Work', 'Contact Us']);
 $_SESSION['user_id'] = 'James@bond.com'; //code to get rid of error msg temporarily, delete it after work has been shown to Nithya
 $upcomingDueDates = UpcomingDueDates::getUpcomingDueDates($_SESSION['user_id'], $dbcon);
 
+$notifications = Notifications::deadlineNotifications($_SESSION['user_id'], $dbcon);
 
 ?>
 
@@ -36,6 +38,7 @@ $upcomingDueDates = UpcomingDueDates::getUpcomingDueDates($_SESSION['user_id'], 
                 <?php
                     //echo $Nav->display_SideNav();
                     echo $upcomingDueDates;
+                    echo $notifications;
                 ?>
 
         </nav>
@@ -55,8 +58,24 @@ $upcomingDueDates = UpcomingDueDates::getUpcomingDueDates($_SESSION['user_id'], 
                             <h5 class="card-title"><?= $project->id; ?></h5>
                             <h6 class="card-subtitle mb-2 text-muted"><?= $project->name; ?></h6>
                             <p class="card-text"><?= $project->description; ?>.</p>
-                            <a href="#" class="card-link">Edit</a>
-                            <a href="#" class="card-link">Delete</a>
+                            <div class="container">
+                                <div class="row">
+                                    <div class="col-12 col-sm-6 col-md-6">
+                                        <form action="./update-project.php" method="post">
+                                            <input type="hidden" name="id" value="<?= $project->id; ?>"/>
+                                            <input type="submit" class="button btn btn-primary" name="updateProject" value="Update"/>
+                                        </form>
+                                    </div>
+                                    <div class="col-12 col-sm-6 col-md-6">
+                                        <form action="./delete-project.php" method="post">
+                                            <input type="hidden" name="id" value="<?=  $project->id; ?>"/>
+                                            <input type="submit" class="button btn btn-danger" name="deleteProject" value="Delete"/>
+                                        </form>
+                                    </div>
+                                </div>
+                                
+                            </div>
+                                
                         </div>
                         </div>
                     </div>
@@ -67,8 +86,8 @@ $upcomingDueDates = UpcomingDueDates::getUpcomingDueDates($_SESSION['user_id'], 
                     <div class="card mb-4 shadow-sm">
                         <div class="card">
                         <div class="card-body">
-                            <button type="button" class="btn btn-default btn-lg">
-                                <span aria-hidden="true"><i class="bi bi-plus" style="font-size: 4.2rem; color: cornflowerblue;"></i></span> 
+                            <button type="button" class="btn btn-default btn-lg">  
+                                <a href="new-project.php"><span aria-hidden="true"><i class="bi bi-plus" style="font-size: 4.2rem; color: cornflowerblue;"></i></span></a> 
                             </button>
                         </div>
                         </div>
