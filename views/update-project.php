@@ -8,14 +8,15 @@ require("./partials/header.php");
 insertHeader();
 //insertSidebar();
 //session_start();
-//require_once './newprojectCheck.php';
 require_once '../Model/Project.php';
 require_once '../Model/Database.php';
 require_once '../Model/ProjectOverview.php';
-
+require("user-function.php");
 
 $name = $project_timestamp = $description = "";
+$app_user_id = $project_id = $role_id = null;
 
+/*Extract the current data from DB*/
 if(isset($_POST['updateProject'])){
     $id= $_POST['id'];
 
@@ -25,12 +26,20 @@ if(isset($_POST['updateProject'])){
     $project = $p->getProjectById($id, $db);
     
     $name = $project->name;
-    $project_timestamp =  new Datetime($project_timestamp);
-    $date = $project_timestamp->format('Y-m-d');
+    $project_timestamp = $project->project_timestamp;
     $description = $project->description;
+
+    /*Get all user from app_user table*/
+    $u = new Project();
+    $project_users = $u->getAllUsersForProject($db);
+
+    /*Add User to Project -> to DB*/
+    //$u = new Project();
+    //$project_users = $u->addProjectUsers($app_user_id, $project_id, $role_id, $db);
 
 }
 
+//Submit New Changes to DB
 if(isset($_POST['updProject'])) {
     $id= $_POST['id'];
     $name = $_POST['project_name'];
@@ -40,13 +49,8 @@ if(isset($_POST['updProject'])) {
     $db = Database::getDb();
     $p = new Project();
     $projects = $p->updateProject($id, $name, $project_timestamp, $description, $db);
-    
-    if($count){
-        header('Location:  projects-overview.php');
-    } else {
-        echo "problem";
-    }
 
+    header('Location:  projects-overview.php');
 }
     ?>
     <!--Main Start Here-->
@@ -67,7 +71,7 @@ if(isset($_POST['updProject'])) {
 
                         <div class="form-group row mb-3">
                             <label class="col-sm-3 col-form-label" for="project_timestamp">Start Date</label>
-                            <input class="col-sm-9" type="date" name="project_timestamp" id="project_timestamp" value="<?= $date ?>" placeholder="Please select the project's start date">
+                            <input class="col-sm-9" type="datetime-local" name="project_timestamp" id="project_timestamp datepicker" value="<?= str_replace(" ", "T", $project_timestamp) ?>"  placeholder="Please select the project's start date">
                             <span style="color:red;"><?= isset($projectTimestampErr) ? $projectTimestampErr : ''; ?></span>
                         </div>
 
@@ -80,7 +84,8 @@ if(isset($_POST['updProject'])) {
 
                             <div class="form-group row mb-3">
                                 <label class="col-sm-3 col-form-label" for="member">Member(s)</label>
-                                <input class="col-sm-9" type="" name="member[]" id="member[]" placeholder="Please Select your member">
+                                <select class="col-sm-9" type="" name="member[]" id="member[]" multiple>
+                                    <?php echo  populateProjectUser($project_users) ?></select>
                                 <span style="color:red;"><?= isset($members_err) ? $members_err : ''; ?></span>
                             </div>
 

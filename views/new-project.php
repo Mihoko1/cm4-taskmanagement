@@ -61,7 +61,7 @@ $name = $project_timestamp = $description = "";
 
                         <div class="form-group row mb-3">
                             <label class="col-sm-3 col-form-label" for="project_timestamp">Start Date</label>
-                            <input class="col-sm-9" type="date" name="project_timestamp" id="project_timestamp" placeholder="Please select the project's start date">
+                            <input class="col-sm-9" type="datetime-local" name="project_timestamp" id="project_timestamp" placeholder="Please select the project's start date">
                             <span style="color:red;"><?= isset($projectTimestampErr) ? $projectTimestampErr : ''; ?></span>
                         </div>
 
@@ -72,11 +72,11 @@ $name = $project_timestamp = $description = "";
                             </div>
 
 
-                            <div class="form-group row mb-3">
+                            <!--div class="form-group row mb-3">
                                 <label class="col-sm-3 col-form-label" for="member">Member(s)</label>
                                 <input class="col-sm-9" type="" name="member[]" id="member[]" placeholder="Please Select your member">
                                 <span style="color:red;"><?= isset($members_err) ? $members_err : ''; ?></span>
-                            </div>
+                            </div-->
 
                             <div class="form-group my-5 text-center">
                                 <div>
