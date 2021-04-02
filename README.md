@@ -8,11 +8,11 @@ Team C4M proposes a task management system to help teams of people coordinate th
 Our system will track deadlines and notify members of upcoming due dates. Our system will also have messaging and document exchange features for team members to communicate with each other and transfer information to other members.
 
 
-## Project Phase 2 Interface Design 
+## Project Phase: Database Design, Interface Design, Implement Functionality to Feature 1 
 
 - [x] Mihoko - Login/Signup, Contact Us, FAQ
 - [x] Gordian - Landing, Sidebar, header, footer, Progress Bar, Notification
-- [x] Choo - Project CRUD, Email
+- [x] Choo - Project CRUD
 - [x] Mahsa - Task CRUD, Category CRUD
 - [x] All members are responsible to review any changes and updates on Git
 - [x] Design tool : Boostrap and CSS
