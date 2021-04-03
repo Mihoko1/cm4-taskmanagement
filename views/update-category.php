@@ -1,3 +1,4 @@
+
 <?php
 require("./partials/header.php");
 require("./partials/footer.php");
@@ -7,24 +8,36 @@ session_start();
 require_once '../Model/Database.php';
 require_once '../Model/Category.php';
 
-// session_start();
+/*Extract the current data from DB*/
+if(isset($_POST['updateCategory'])){
+    $id= $_POST['id'];
+    echo "test";
+    $db = Database::getDb();
 
-if (isset($_POST['addCategory'])) {
-    $title = $_POST['title'];
-    $description = $_POST['description'];
-    $project_id = 2;   // to do: get info from session
-    $creator_user_id = 3;   // to do: get info from session
+    $ca = new Category();
+    $category = $ca->getCategoryById($id, $db);
+    
+    $title = $category->title;
+    $description =" $category->description";
+}
+
+//Submit New Changes to DB
+if(isset($_POST['updCategory'])) {
+    $id= $_POST['id'];
+    $title = $_POST['title']; 
+    $description =  $_POST['description'];
+    $project_id = 2; // to do: get info from session
+    $creator_user_id = 3; // to do: get info from session
 
     if ($title != "" && $description != "") {
         $db = Database::getDb();
         $ca = new Category();
-        $count = $ca->addCategory($title, $description, $project_id, $creator_user_id, $db);
+        $categories = $ca->updateCategory($id, $title, $description, $project_id, $creator_user_id, $db);
 
-        if ($count) {
-            //on success navigate to category list
+        if($count){
             header("Location: ./list-category.php");
         } else {
-            echo "problem adding a category";
+            echo "problem";
         }
     } else {
         //validate title
@@ -41,21 +54,21 @@ if (isset($_POST['addCategory'])) {
 if (isset($_POST['cancelCategory'])) {
     header("Location: ./list-category.php");
 }
-
 ?>
 
 <main>
     <section class="container my-5">
-        <h2>Create New Category</h2>
+        <h2>Update Category</h2>        
         <form action="" name="categoryForm" method="post">
             <div class="row">
                 <div class="col-12">
                     <div class="float-end">
-                        <button type="submit" name="cancelCategory" class="btn btn-secondary">Cancel</button>
-                        <button type="submit" name="addCategory" class="btn btn-success">Save</button>
+                        <button type="submit" name="cancelCategory" class="btn btn-secondary">Cancel</button>                        
+                        <button type="submit" name="updCategory" class="btn btn-success">Save</button>
                     </div>
                 </div>
             </div>
+            <input type="hidden" id="id" name="id" value="<?=$id?>"/>
             <div class="row">
                 <div class="form-group col-12">
                     <label for="category">Category name:</label>
@@ -71,7 +84,7 @@ if (isset($_POST['cancelCategory'])) {
                 </div>
             </div>
 
-            <!-- <div class="row">
+        <!-- <div class="row">
             <div>Created By: Mahsa Karimi Fard </div>
             <div>Last Modify: 2021-02-21</div>  
         </div>  -->

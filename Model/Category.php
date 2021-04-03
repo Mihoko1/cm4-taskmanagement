@@ -1,5 +1,3 @@
-
-
 <?php
 
 class Category
@@ -12,9 +10,9 @@ class Category
         return $pst->fetch(PDO::FETCH_OBJ);
     }
 
-    public function getAllCategories($dbcon){
+    public function getAllCategories($db){
         $sql = "SELECT * FROM category";
-        $pdostm = $dbcon->prepare($sql);
+        $pdostm = $db->prepare($sql);
         $pdostm->execute();
 
         $categories = $pdostm->fetchAll(PDO::FETCH_OBJ);
@@ -36,7 +34,7 @@ class Category
         $count = $pst->execute();
         return $count;
     }
-
+       
     public function deleteCategory($id, $db){
         $sql = "DELETE FROM category WHERE id = :id";
 
@@ -54,10 +52,9 @@ class Category
                 project_id = :project_id,
                 creator_user_id = creator_user_id
                 WHERE id = :id
-        
         ";
 
-        $pst =  $db->prepare($sql);
+        $pst = $db->prepare($sql);
 
         $pst->bindParam(':title', $title);
         $pst->bindParam(':description', $description);
@@ -66,7 +63,6 @@ class Category
         $pst->bindParam(':id', $id);
 
         $count = $pst->execute();
-
         return $count;
     }
 }
