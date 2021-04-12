@@ -24,8 +24,8 @@ $categories =  $ca->getAllCategories($dbcon);
                         <th scope="col">ID</th>
                         <th scope="col">Title</th>
                         <th scope="col">Description</th> 
-                        <th scope="col"></th>  
-                        <th scope="col"></th>    
+                        <th scope="col">Update</th>  
+                        <th scope="col">Delete</th>    
                     </tr>
                 </thead>
                 <tbody>
@@ -34,14 +34,14 @@ $categories =  $ca->getAllCategories($dbcon);
                             <th><?= $category->id; ?></th>
                             <td><?= $category->title; ?></td>
                             <td><?= $category->description; ?></td>  
-                            <td style="width: 100px;">
+                            <td>
                                 <form action="./delete-category.php" method="post" onsubmit="return confirm('Are you sure you want to delete?');">
                                     <input type="hidden" name="id" value="<?= $category->id;?>"/>
                                     <input type="submit" class="button btn btn-danger" name="deleteCategory" value="Delete"/>
                                 </form>
                             </td>                          
-                            <td style="width: 100px;">
-                                <form action="./update-category.php"  method="post">
+                            <td>
+                                <form action="./update-category.php" method="post">
                                     <input type="hidden" name="id" value="<?= $category->id; ?>" />
                                     <input type="submit" class="button btn btn-primary" name="updateCategory" value="Update" />
                                 </form>

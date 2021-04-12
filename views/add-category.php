@@ -9,49 +9,44 @@ require_once '../Model/Category.php';
 
 // session_start();
 
-if (isset($_POST['addCategory'])) {
+if(isset($_POST['addCategory'])){
+
     $title = $_POST['title'];
     $description = $_POST['description'];
     $project_id = 2;   // to do: get info from session
     $creator_user_id = 3;   // to do: get info from session
+    
+    if ($title == "") {
+        $titleErr = "Please enter category name";
+    } 
 
-    if ($title != "" && $description != "") {
-        $db = Database::getDb();
-        $ca = new Category();
-        $count = $ca->addCategory($title, $description, $project_id, $creator_user_id, $db);
+    if ($description == "") {
+        $descriptionErr = " Please enter description!";
+    } 
 
-        if ($count) {
-            //on success navigate to category list
-            header("Location: ./list-category.php");
-        } else {
-            echo "problem adding a category";
-        }
+    
+    $db = Database::getDb();  
+
+    $ca = new Category();    
+
+    $c = $ca->addCategory($title, $description, $project_id, $creator_user_id, $db);   
+
+    if($c){
+        echo "Added category sucessfully";
     } else {
-        //validate title
-        if ($title == "") {
-            $titleErr = "Please enter category name";
-        } 
-        //validate description
-        if ($description == "") {
-            $descriptionErr = "Please enter description!";
-        }
+        echo "problem adding a category";
     }
-}
-
-if (isset($_POST['cancelCategory'])) {
-    header("Location: ./list-category.php");
-}
-
+ }
 ?>
 
 <main>
     <section class="container my-5">
-        <h2>Create New Category</h2>
-        <form action="" name="categoryForm" method="post">
+        <h2>Create New Category</h2>        
+        <form action="./list-category.php" name="taskForm" method="post">
             <div class="row">
                 <div class="col-12">
                     <div class="float-end">
-                        <button type="submit" name="cancelCategory" class="btn btn-secondary">Cancel</button>
+                        <button type="submit" name="cancelCategory" class="btn btn-secondary">Cancel</button>                        
                         <button type="submit" name="addCategory" class="btn btn-success">Save</button>
                     </div>
                 </div>
@@ -71,7 +66,7 @@ if (isset($_POST['cancelCategory'])) {
                 </div>
             </div>
 
-            <!-- <div class="row">
+        <!-- <div class="row">
             <div>Created By: Mahsa Karimi Fard </div>
             <div>Last Modify: 2021-02-21</div>  
         </div>  -->
