@@ -50,7 +50,7 @@ class Category
                 set title = :title,
                 description = :description,
                 project_id = :project_id,
-                creator_user_id = creator_user_id
+                creator_user_id = :creator_user_id
                 WHERE id = :id
         ";
 

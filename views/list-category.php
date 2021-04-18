@@ -43,7 +43,7 @@ $categories =  $ca->getAllCategories($dbcon);
                             <td>
                                 <form action="./update-category.php" method="post">
                                     <input type="hidden" name="id" value="<?= $category->id; ?>" />
-                                    <input type="submit" class="button btn btn-primary" name="updateCategory" value="Update" />
+                                    <input type="submit" class="button btn btn-primary" name="getCategoryDetails" value="Update" />
                                 </form>
                             </td>
                         </tr>
