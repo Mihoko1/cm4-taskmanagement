@@ -14,7 +14,7 @@ if(isset($_POST['id'])){
     $s = new Category();
     $count = $s->deleteCategory($id, $db);
     if($count){
-        header("Location: list-category.php");
+        header("Location: category-list.php");
     }
     else {
         echo " category deleting";

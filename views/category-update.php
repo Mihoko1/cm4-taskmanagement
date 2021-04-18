@@ -35,7 +35,7 @@ if(isset($_POST['updCategory'])) {
         $count = $ca->updateCategory($id, $title, $description, $project_id, $creator_user_id, $db);
 
         if($count){
-            header("Location: ./list-category.php");
+            header("Location: ./category-list.php");
         } else {
             echo "problem";
         }
@@ -52,7 +52,7 @@ if(isset($_POST['updCategory'])) {
 }
 
 if (isset($_POST['cancelCategory'])) {
-    header("Location: ./list-category.php");
+    header("Location: ./category-list.php");
 }
 ?>
 

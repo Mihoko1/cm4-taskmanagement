@@ -22,7 +22,7 @@ if (isset($_POST['addCategory'])) {
 
         if ($count) {
             //on success navigate to category list
-            header("Location: ./list-category.php");
+            header("Location: ./category-list.php");
         } else {
             echo "problem adding a category";
         }
@@ -39,7 +39,7 @@ if (isset($_POST['addCategory'])) {
 }
 
 if (isset($_POST['cancelCategory'])) {
-    header("Location: ./list-category.php");
+    header("Location: ./category-list.php");
 }
 
 ?>
