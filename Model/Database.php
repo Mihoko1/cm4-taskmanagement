@@ -12,7 +12,7 @@ class Database
     //mysql://bfaca630ffd158:b64928b4@us-cdbr-east-03.cleardb.com/heroku_96a828e3e46c53e?reconnect=true
     private static $user = 'bfaca630ffd158';
     private static $pass = 'b64928b4';
-    private static $dsn = 'mysql:host=us-cdbr-east-03.cleardb.com;dbname=heroku_96a828e3e46c53e';
+    private static $dsn = 'mysql:host=us-cdbr-east-03.cleardb.com;dbname=heroku_96a828e3e46c53e;charset=utf8';
   
 
     //properties
