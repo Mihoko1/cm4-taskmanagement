@@ -1,10 +1,11 @@
 <?php
-// namespace TaskManagement\Model;
-
+/*page -> project-overview.php
+ * method to retrieve data from project table*/
 class ProjectOverview
 {
 
-    public function getAllProjects($dbcon){
+    public function getAllProjects($dbcon)
+    {
         $query = "SELECT * FROM project";
         $pdostm = $dbcon->prepare($query);
         $pdostm->execute();
@@ -12,5 +13,5 @@ class ProjectOverview
         return $projects;
     }
 
-    
+
 }

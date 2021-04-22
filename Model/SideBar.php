@@ -1,6 +1,6 @@
 <?php
-// namespace TaskManagement\Model;
-Class SideBar {
+// design data driven nav links
+class SideBar {
     private $sidenav;
 
 
