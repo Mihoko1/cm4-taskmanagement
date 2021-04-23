@@ -10,15 +10,15 @@ class Database
     // private static $dsn = 'mysql:host=localhost;dbname=task_management';
     // private static $dbcon;
     //mysql://bfaca630ffd158:b64928b4@us-cdbr-east-03.cleardb.com/heroku_96a828e3e46c53e?reconnect=true
-    // private static $user = 'bfaca630ffd158';
-    // private static $pass = 'b64928b4';
-    // private static $dsn = 'mysql:host=us-cdbr-east-03.cleardb.com;dbname=heroku_96a828e3e46c53e;charset=utf8';
+    private static $user = 'bfaca630ffd158';
+    private static $pass = '2df07728ed2e994';
+    private static $dsn = 'mysql:host=us-cdbr-east-03.cleardb.com;dbname=heroku_96a828e3e46c53e;charset=utf8';
   
 
     //properties
-    private static $user = 'root';
-    private static $pass = 'root';
-    private static $dsn = 'mysql:host=localhost;dbname=task_management';
+    // private static $user = 'root';
+    // private static $pass = 'root';
+    // private static $dsn = 'mysql:host=localhost;dbname=task_management';
     
      private static $dbcon;
 
