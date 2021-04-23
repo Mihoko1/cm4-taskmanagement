@@ -88,3 +88,32 @@ Our system will track deadlines and notify members of upcoming due dates. Our sy
 #### What's Next
 - Styling improvements 
 - Expand the functionality of the Notification and Upcoming Due Dates features to display more useful information to the user
+
+---
+
+### MIHOKO SCHICK'S CONTRIBUTION
+
+#### Features
+
+- Sign up and Login (views/login.php, views/signup.php/ Model/Authentication.php)
+- Contact Us Page (views/contactus.php, /Model/Contact.php)
+- FAQ Page (views/faq.php, views/searchResults.php, /Model/FAQ.php)
+- Login User Dropdown on Header (/views/partials/header.php)
+
+#### Description
+- Sign up: User input name (first and last name), email address and password, and  confirm password, validate inputs.Password field encrypts using “password_hash”. If there are no validation errors, these information will be stored in the database. Once the user creates the account, automatically login and move to the task management page. Use sessions. 
+- Login: User input email address and password, and validate the inputs. If email address and password match to the data stored in the database, the user can login and move to the task management page. Use session, so that the user does not need to login again if the user closes the browser and comes back to the dashboard again.
+- Contact Us page form contains inputs for the name, email, phone number, dropdown for inquiry type, and text area for message. Name, email, inquiry dropdown and message area have validation and phone number field is optional. If there is no validation error, the confirmation page will display with information user inputed. If the user clicks the ''send' button, the form information will be stored in the database(contact_info_public). “Thank you message” will be displayed and the button will be disabled.
+- FAQ: Main FAQ page has three categories:“Getting Started”, “Dashboard”, “Troubleshooting” . Once a user clicks a button, the page will redirect to the Search Results page. Questions and answers for the categories will be retrieved from the database.Main FAQ page and search result page have a search bar so that the user can use a search bar to look for certain questions, the system will use keywords to try to find an equivalent question in the system.
+
+#### Learning Curve
+- Learning curve for this project was medium
+
+#### Overcome
+- Database connection using PDO
+- Familiarized with PHP build-in function
+- Heroku deployment and clearDB
+
+#### What's Next
+- I would like to try ajax for forms and search bar next time
+-
