@@ -21,7 +21,7 @@ Our system will track deadlines and notify members of upcoming due dates. Our sy
 - [x] Javascript
 - [x] Composer,Packagist(phpmailer)
 
-## "Features"
+## Features
 
 ### CRUD 1: Project CRUD (Choo)
 
@@ -57,3 +57,34 @@ Our system will track deadlines and notify members of upcoming due dates. Our sy
 - Try to fix the position of the error message box from update to add section.
 
 ---
+
+### GORDIAN MOK'S CONTRIBUTION
+
+#### Features
+
+- User-specific notifications (/Model/Notifications.php)
+- Upcoming due dates report for each user (/Model/UpcomingDueDates.php)
+- Task Progress bar display for each task (/Model/TaskProgress.php)
+- Emailer feature using PHPMailer (/Model/Emailer.php)
+- Header (/views/partials/header.php)
+- Footer (/views/partials/footer.php)
+- Sidebar (/views/partials/header.php) [superceded]
+
+#### Description
+- Notifications displays in the sidebar the number of tasks that are past due or will become due in the next 7 days
+- Upcoming Due Dates feature displays in the sidebar the tasks that will be due in the near future, the title, and due dates
+- Task Progress creates a progress bar to display the progress of the project in visual form by calculating the tasks that have been marked as Done or Cancelled and comparing that with the number of overall tasks outstanding in the project
+- Emailer is a class method to support other features by sending emailed notices or confirmations to users
+- Header, Footer and Sidebar are functions that generate dynamic HTML content for the header, footer and sidebar
+
+#### Learning Curve
+- Learning curve for this project was medium
+
+#### Overcome
+- SQL datetime data and PHP datatime data type are not entirely compatible and so techniques were researched to convert SQL datetime data into a form that is recognized by PHP
+- SQL queries were designed to efficiently obtain the needed data and filter out data that is not required, thereby reducing the data processing workload required in PHP
+- Research into HTML and Bootstrap progress bar element was educational
+
+#### What's Next
+- Styling improvements 
+- Expand the functionality of the Notification and Upcoming Due Dates features to display more useful information to the user
