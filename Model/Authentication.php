@@ -18,7 +18,7 @@ class Authentication
         $pdostm->execute();
         
         //Fetch a result row as an associative array
-        return $user = $pdostm->fetch(\PDO::FETCH_ASSOC);
+        return $pdostm->fetch(\PDO::FETCH_ASSOC);
         
     }
 
@@ -36,7 +36,7 @@ class Authentication
         $pdostm->bindParam(':email' , $email );
         
         //Execute
-        return $user = $pdostm->execute();
+        return $pdostm->execute();
     }
 
     
