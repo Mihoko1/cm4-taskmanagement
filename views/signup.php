@@ -53,6 +53,8 @@ if(isset($_POST['submit'])){
 
         //Check if password from form matches with regular expression
         if (preg_match('/\A(?=.*?[a-z])(?=.*?[A-Z])(?=.*?\d)[a-zA-Z\d]{8,20}+\z/', $_POST['password'])) {
+
+            //using password_hash build in function to creates a password hash
             $password = password_hash($_POST['password'], PASSWORD_DEFAULT);
 
         // If password is no maching with regx
