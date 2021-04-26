@@ -41,7 +41,7 @@ insertHeader();
         $count++;
     }
     
-    //Pass email address after check password
+    //If no email validation error and password from form value matches a hash password retrieved from database
     if ($count == 0 && password_verify($_POST['password'], $user['password'])) {
     
         //generate and replace new session_id
