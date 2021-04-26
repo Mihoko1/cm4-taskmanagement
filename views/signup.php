@@ -11,6 +11,7 @@ insertHeader();
 // If form is submitted
 if(isset($_POST['submit'])){
 
+        // This count will be used for form validation. Each time user send form, this count value become 0. 
     $count = 0;
 
     // Connect to database
@@ -50,7 +51,7 @@ if(isset($_POST['submit'])){
     //Password check
     }else{
 
-        //password regx
+        //Check if password from form matches with regular expression
         if (preg_match('/\A(?=.*?[a-z])(?=.*?[A-Z])(?=.*?\d)[a-zA-Z\d]{8,20}+\z/', $_POST['password'])) {
             $password = password_hash($_POST['password'], PASSWORD_DEFAULT);
 
