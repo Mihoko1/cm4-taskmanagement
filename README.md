@@ -117,3 +117,33 @@ Our system will track deadlines and notify members of upcoming due dates. Our sy
 #### What's Next
 - I would like to try ajax for forms and search bar next time
 
+
+### Mahsa Karimi Fard'S CONTRIBUTION
+
+#### Features (Mahsa)
+- Category or Backlog(CRUD):
+    - views/category-add.php                  
+    - views/category-list.php, 
+    - views/category-delete.php                  
+    - views/category-update.php
+    - Model/Category.php
+    - Applied Validations to forms
+
+- Task(CRUD) feature:
+    - views/task-add.php                  
+    - views/task-delete.php                  
+    - views/task-update.php
+    - Model/task.php
+    - Applied Validations to forms
+
+- Task Board (Filtering)
+    - views/task-board.php 
+    - Filtering (options to filter tasks by Assigned To which member/ By Backlog Items(related tasks)/ By State(Done-In progress-To Do and canceled))
+    - Assigned To- Dropdown (Model/member.php)
+    - Backlog item- Dropdown 
+    - State- Dropdown (Model/State.php)
+    - Reset Filters 
+    - Apply Filters
+
+#### Learning Curve
+- Learning curve for this project was medium
