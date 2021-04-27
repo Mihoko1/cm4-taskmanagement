@@ -117,6 +117,7 @@ Our system will track deadlines and notify members of upcoming due dates. Our sy
 #### What's Next
 - I would like to try ajax for forms and search bar next time
 
+---
 
 ### Mahsa Karimi Fard'S CONTRIBUTION
 
