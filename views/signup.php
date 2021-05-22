@@ -11,7 +11,7 @@ insertHeader();
 // If form is submitted
 if(isset($_POST['submit'])){
 
-        // This count will be used for form validation. Each time user send form, this count value become 0. 
+    // This count will be used for form validation. Each time user send form, this count value become 0. 
     $count = 0;
 
     // Connect to database

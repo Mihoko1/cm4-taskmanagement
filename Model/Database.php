@@ -14,9 +14,9 @@ class Database
     // {
     // }
     
-    private static $user = 'bfaca630ffd158';
-    private static $pass = '2df07728ed2e994';
-    private static $dsn = 'mysql:host=us-cdbr-east-03.cleardb.com;dbname=heroku_96a828e3e46c53e;charset=utf8';
+    private static $user = 'b507f6bf085a2c';
+    private static $pass = 'dede1e76';
+    private static $dsn = 'mysql:host=us-cdbr-east-03.cleardb.com;dbname=heroku_cdade6b157db2becharset=utf8';
     
     private static $dbcon;
 
